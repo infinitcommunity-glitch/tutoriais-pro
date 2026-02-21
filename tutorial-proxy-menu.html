@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Proxy Menu - Centro de Recursos Pro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0015 0%, #1a0033 50%, #000814 100%);
+            color: #e0e0ff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(10, 0, 30, 0.7);
+            border-bottom: 3px solid #9d00ff;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(157, 0, 255, 0.4);
+        }
+        header h1 { font-size: 2.5em; color: #c300ff; text-shadow: 0 0 20px #c300ff; margin-bottom: 10px; }
+        .breadcrumb { color: #b0b0ff; font-size: 0.9em; margin-top: 10px; }
+        .breadcrumb a { color: #00d4ff; text-decoration: none; cursor: pointer; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .container { max-width: 900px; margin: 0 auto; }
+        section {
+            background: rgba(20, 0, 50, 0.4);
+            border: 2px solid #9d00ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.2);
+        }
+        h2 { color: #00d4ff; font-size: 1.8em; margin-bottom: 15px; border-bottom: 2px solid #9d00ff; padding-bottom: 10px; text-shadow: 0 0 8px #00d4ff; }
+        h3 { color: #c300ff; font-size: 1.3em; margin-top: 20px; margin-bottom: 10px; text-shadow: 0 0 6px #c300ff; }
+        p { color: #b0b0ff; line-height: 1.6; margin-bottom: 15px; }
+        .warning { background: rgba(255, 80, 80, 0.1); border-left: 4px solid #ff5555; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .warning strong { color: #ff6666; }
+        .success { background: rgba(0, 212, 255, 0.08); border-left: 4px solid #00d4ff; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success strong { color: #00d4ff; }
+        .info { background: rgba(157, 0, 255, 0.1); border-left: 4px solid #9d00ff; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info strong { color: #c300ff; }
+        ol, ul { margin-left: 30px; margin-bottom: 15px; color: #b0b0ff; line-height: 1.8; }
+        li { margin-bottom: 10px; }
+        .step { background: rgba(157, 0, 255, 0.07); border-left: 4px solid #9d00ff; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .step-number { display: inline-block; background: linear-gradient(135deg, #9d00ff, #00d4ff); color: #fff; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        .step-title { color: #00d4ff; font-size: 1.1em; font-weight: bold; display: inline; }
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #9d00ff 0%, #00d4ff 100%);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .download-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 212, 255, 0.8); }
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #9d00ff 0%, #00d4ff 100%);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .back-button:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 212, 255, 0.6); }
+        footer { text-align: center; padding: 20px; color: #8080aa; margin-top: 40px; border-top: 1px solid #300066; }
+        code { background: rgba(0, 212, 255, 0.1); color: #00d4ff; padding: 2px 6px; border-radius: 3px; }
+        a { color: #00d4ff; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            section { padding: 20px; }
+            h2 { font-size: 1.4em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎛️ Tutorial: Proxy Menu</h1>
+        <div class="breadcrumb">
+            <a onclick="window.location.href='index.html'">← Voltar para Home</a> | Atualizado em Fevereiro 2026
+        </div>
+    </header>
+
+    <div class="container">
+        <button class="back-button" onclick="window.location.href='index.html'">← Voltar para Home</button>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="https://cdn.discordapp.com/attachments/1299864322914259064/1430663887501656114/proxyyy_embed.jpg?ex=699a1e93&is=6998cd13&hm=e00115604dab1d9421188df37a597d7efd9c673718be0c6f8a441cddb877aeea&" alt="Proxy Menu Tutorial" style="width: 100%; max-width: 600px; border-radius: 10px; border: 2px solid #9d00ff; box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);" onerror="this.style.display='none'" />
+        </div>
+
+        <section>
+            <h2>📌 Introdução</h2>
+            <p>
+                Bem-vindo ao tutorial completo do <strong>Proxy Menu</strong>! Este é um programa versátil que oferece diversos recursos e funcionalidades avançadas para gerenciar e otimizar suas aplicações.
+            </p>
+            <p>
+                Este guia passo-a-passo vai te ensinar como instalar, configurar e utilizar o Proxy Menu de forma segura e eficiente.
+            </p>
+        </section>
+
+        <section>
+            <h2>📋 O que você vai aprender</h2>
+            <ul>
+                <li>✅ O que é Proxy Menu e suas funcionalidades</li>
+                <li>✅ Requisitos mínimos do sistema</li>
+                <li>✅ Como fazer download com segurança</li>
+                <li>✅ Processo de instalação completo</li>
+                <li>✅ Configuração inicial e avançada</li>
+                <li>✅ Ativação com chave de subscrição</li>
+                <li>✅ Troubleshooting e suporte</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🔧 Requisitos Mínimos</h2>
+            <h3>Sistema Operacional:</h3>
+            <ul>
+                <li><strong>Windows 10/11</strong> 64 bits</li>
+            </ul>
+            <h3>Hardware:</h3>
+            <ul>
+                <li><strong>CPU:</strong> Intel i3 ou AMD Ryzen 3+</li>
+                <li><strong>RAM:</strong> Mínimo 4GB</li>
+                <li><strong>Espaço em disco:</strong> 300MB SSD recomendado</li>
+            </ul>
+            <h3>Software:</h3>
+            <ul>
+                <li><strong>.NET Framework:</strong> 4.8+ (geralmente já está instalado)</li>
+                <li><strong>Internet:</strong> Conexão para ativação de chaves</li>
+            </ul>
+            <div class="success">
+                <strong>✅ Compatível:</strong> A maioria dos PCs com Windows 10/11 atende esses requisitos.
+            </div>
+        </section>
+
+        <section>
+            <h2>📥 Passo 1: Download do Proxy Menu</h2>
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-title">Faça o Download</span>
+            </div>
+            <p>Clique no botão abaixo para fazer download seguro:</p>
+            <button class="download-button" onclick="alert('Link de download será adicionado em breve. Você receberá via WhatsApp/Email.');">
+                📥 Baixar Proxy Menu v4.2
+            </button>
+            <div class="success">
+                <strong>✅ Download:</strong> Arquivo baixado com sucesso!
+            </div>
+        </section>
+
+        <section>
+            <h2>📦 Passo 2: Descompactar o Arquivo</h2>
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-title">Extrair o ZIP</span>
+            </div>
+            <ol>
+                <li>Localize o arquivo baixado em <strong>Downloads</strong></li>
+                <li>Clique <strong>direito</strong> → <strong>"Extrair aqui"</strong> ou use 7-Zip/WinRAR</li>
+                <li>Aguarde completamente a extração</li>
+                <li>Uma pasta chamada <strong>Proxy-Menu-4.2</strong> será criada</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>⚙️ Passo 3: Preparar o Sistema</h2>
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-title">Desativar Proteções Temporariamente</span>
+            </div>
+            <p>Para uma instalação suave, desative temporariamente:</p>
+            <ol>
+                <li>Abra <strong>Configurações</strong> (Windows + I)</li>
+                <li>Vá para <strong>Privacidade e Segurança</strong></li>
+                <li>Clique em <strong>Proteção contra vírus</strong></li>
+                <li>Desative <strong>Proteção em tempo real</strong></li>
+                <li>Também desative qualquer outro antivírus</li>
+            </ol>
+            <div class="info">
+                <strong>💡 Lembre-se:</strong> Reative o antivírus após a instalação para manter seu PC seguro.
+            </div>
+        </section>
+
+        <section>
+            <h2>✅ Passo 4: Instalar o Proxy Menu</h2>
+            <div class="step">
+                <span class="step-number">4</span>
+                <span class="step-title">Executar o Instalador</span>
+            </div>
+            <ol>
+                <li>Abra a pasta descompactada</li>
+                <li>Procure por <strong>Setup.exe</strong> ou <strong>ProxyMenu-Installer.exe</strong></li>
+                <li>Clique <strong>direito</strong> → <strong>"Executar como administrador"</strong></li>
+                <li>Clique <strong>"Sim"</strong> na pergunta de controle de conta</li>
+                <li>Siga as instruções na tela (próximo, próximo, instalar)</li>
+                <li>Escolha o destino ou deixe o padrão</li>
+                <li>Aguarde 2-5 minutos para conclusão</li>
+                <li>Clique <strong>"Concluir"</strong> quando terminar</li>
+            </ol>
+            <div class="success">
+                <strong>✅ Instalado!</strong> Proxy Menu pronto para ativar.
+            </div>
+        </section>
+
+        <section>
+            <h2>🔑 Passo 5: Ativar com Chave de Subscrição</h2>
+            <div class="step">
+                <span class="step-number">5</span>
+                <span class="step-title">Inserir Chave de Ativação</span>
+            </div>
+            <ol>
+                <li>Duplo-clique no atalho <strong>Proxy Menu</strong></li>
+                <li>O programa abrirá em janela</li>
+                <li>Procure pela aba <strong>"Ativação"</strong> ou <strong>"License"</strong></li>
+                <li>Clique em <strong>"Ativar com Chave"</strong> ou <strong>"Insert Key"</strong></li>
+                <li>Cole sua chave de subscrição mensal (modelo: <code>MENSAL-XXXXX...-XXXXX</code>)</li>
+                <li>Clique em <strong>"Validar"</strong> ou <strong>"Activate"</strong></li>
+                <li>Se válida, o programa mostrará mensagem de sucesso ✅</li>
+            </ol>
+            <div class="info">
+                <strong>💡 Chave:</strong> Você recebeu sua chave por WhatsApp ou Email no momento da compra.
+            </div>
+        </section>
+
+        <section>
+            <h2>🎛️ Passo 6: Configuração Inicial</h2>
+            <div class="step">
+                <span class="step-number">6</span>
+                <span class="step-title">Configurar o Proxy Menu</span>
+            </div>
+            <h3>Configurações Recomendadas:</h3>
+            <ul>
+                <li><strong>Settings/Configurações:</strong>
+                    <ul>
+                        <li>✅ Ative "Auto-Start com Windows"</li>
+                        <li>✅ Ative "Minimize to Tray"</li>
+                        <li>✅ Desative notificações (opcional)</li>
+                    </ul>
+                </li>
+                <li><strong>Proxy Settings:</strong>
+                    <ul>
+                        <li>Selecione "Proxy Type" conforme necessário</li>
+                        <li>Configure "Port" (padrão: 8080)</li>
+                    </ul>
+                </li>
+                <li><strong>Advanced:</strong>
+                    <ul>
+                        <li>Deixe no padrão para uso normal</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🟢 Passo 7: Ativar o Proxy Menu</h2>
+            <div class="step">
+                <span class="step-number">7</span>
+                <span class="step-title">Conectar o Proxy</span>
+            </div>
+            <ol>
+                <li>Procure pelo botão <strong>"Ativar"</strong>, <strong>"Start"</strong> ou <strong>"Connect"</strong></li>
+                <li>Clique para ativar o Proxy Menu</li>
+                <li>Você verá um indicador <strong>de status ativo</strong> ou <strong>"Conectado"</strong></li>
+                <li>O programa está ativo e funcionando! ✅</li>
+            </ol>
+            <div class="success">
+                <strong>✅ Ativo!</strong> Proxy Menu está funcionando corretamente.
+            </div>
+        </section>
+
+        <section>
+            <h2>🐛 Troubleshooting: Problemas Comuns</h2>
+
+            <h3>❌ Problema: "Chave inválida" ou "Chave expirada"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Verifique se você colou a chave <strong>COMPLETA</strong> (com hífens)</li>
+                <li>Certifique-se de que a chave não está com espaços extras</li>
+                <li>Verifique data de validade no seu email ou painel de cliente</li>
+                <li>Contacte suporte se a chave expirou ou apresentar erro</li>
+            </ul>
+
+            <h3>❌ Problema: "Programa não abre"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Execute como <strong>Administrador</strong> sempre</li>
+                <li>Desative antivírus durante execução</li>
+                <li>Reinstale completamente o programa</li>
+            </ul>
+
+            <h3>❌ Problema: "Proxy não conecta" ou "Conexão recusada"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Verifique sua conexão de internet</li>
+                <li>Reinicie o roteador WiFi/modem</li>
+                <li>Verifique se porta 8080 não está bloqueada</li>
+                <li>Use VPN se necessário</li>
+            </ul>
+
+            <h3>❌ Problema: ".NET Framework não encontrado"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Baixe e instale <strong>.NET Framework 4.8+</strong> (grátis da Microsoft)</li>
+                <li>Reinicie o PC</li>
+                <li>Tente instalar o Proxy Menu novamente</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🔒 Dicas de Segurança</h2>
+            <ul>
+                <li>🔐 <strong>Mantenha segura:</strong> Sua chave é pessoal, não compartilhe</li>
+                <li>🛡️ <strong>Reative antivírus:</strong> Após completar instalação</li>
+                <li>📊 <strong>Monitore uso:</strong> Verifique logs regularmente</li>
+                <li>🔄 <strong>Atualizações:</strong> Sempre que disponível, instale atualizações</li>
+                <li>❌ <strong>Não compartilhe chave:</strong> Cada chave é vinculada a 1 PC</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>❤️ Suporte e Contato</h2>
+            <ul>
+                <li>📧 <strong>Email:</strong> suporte@centrorecursospro.com</li>
+                <li>📱 <strong>WhatsApp:</strong> Abra um ticket de suporte</li>
+                <li>🌐 <strong>Painel:</strong> Gerencie suas chaves no painel de cliente</li>
+                <li>⏰ <strong>Atendimento:</strong> Segunda-sexta, 11:00 às 21:00</li>
+            </ul>
+        </section>
+
+        <button class="back-button" onclick="window.location.href='index.html'">← Voltar para Home</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Centro de Recursos Pro. Todos os direitos reservados. Desenvolvido com ❤️ para você | Última atualização: Fevereiro 2026</p>
+    </footer>
+</body>
+</html>

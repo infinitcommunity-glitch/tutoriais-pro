@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Recursos Pro - Tutoriais & Downloads</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0015 0%, #1a0033 50%, #000814 100%);
+            color: #e0e0ff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(10, 0, 30, 0.7);
+            border-bottom: 3px solid #9d00ff;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(157, 0, 255, 0.4);
+        }
+        header h1 {
+            font-size: 2.5em;
+            color: #c300ff;
+            text-shadow: 0 0 20px #c300ff;
+            margin-bottom: 10px;
+        }
+        header p { color: #b0b0ff; font-size: 1.1em; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            font-size: 1.8em;
+            color: #00d4ff;
+            margin: 40px 0 20px 0;
+            padding-left: 10px;
+            border-left: 4px solid #9d00ff;
+            text-shadow: 0 0 10px #00d4ff;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: rgba(30, 0, 60, 0.4);
+            border: 2px solid #9d00ff;
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
+            color: #e0e0ff;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            background: rgba(50, 0, 90, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(195, 0, 255, 0.6);
+            border-color: #00d4ff;
+        }
+        .card-title {
+            font-size: 1.3em;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 0 0 8px #00d4ff;
+        }
+        .card-description {
+            font-size: 0.9em;
+            color: #b0b0ff;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .card-button {
+            background: linear-gradient(90deg, #9d00ff 0%, #00d4ff 100%);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+        .card-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+        }
+        /* Radio Player */
+        .player-section {
+            background: rgba(20, 0, 50, 0.5);
+            border: 2px solid #c300ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(195, 0, 255, 0.4);
+        }
+        .player-section h2 {
+            color: #c300ff;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #c300ff;
+        }
+        .player-section p { color: #b0b0ff; margin-bottom: 20px; }
+        audio {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            border: 2px solid #c300ff;
+            box-shadow: 0 0 15px rgba(195, 0, 255, 0.5);
+            display: block;
+            margin: 0 auto;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #8080aa;
+            margin-top: 40px;
+            border-top: 1px solid #300066;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.85);
+        }
+        .modal-content {
+            background: linear-gradient(135deg, #100020 0%, #200040 100%);
+            margin: 10% auto;
+            padding: 30px;
+            border: 2px solid #9d00ff;
+            width: 90%; max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(157, 0, 255, 0.5);
+            text-align: center;
+        }
+        .modal-content h2 {
+            color: #c300ff;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-shadow: 0 0 10px #c300ff;
+        }
+        .modal-content p { color: #b0b0ff; margin-bottom: 20px; }
+        .input-key {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #00d4ff;
+            background: rgba(0, 212, 255, 0.1);
+            color: #e0e0ff;
+            border-radius: 5px;
+            font-size: 1em;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .input-key::placeholder { color: #555; }
+        .input-key:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+            border-color: #c300ff;
+        }
+        .modal-buttons { display: flex; gap: 10px; }
+        .btn-unlock {
+            flex: 1;
+            background: linear-gradient(90deg, #c300ff 0%, #00d4ff 100%);
+            color: #000;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-unlock:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 212, 255, 0.8); }
+        .btn-cancel {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            padding: 12px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-cancel:hover { background: rgba(255, 255, 255, 0.2); }
+        .error-message { color: #ff6680; margin-top: 10px; font-size: 0.9em; display: none; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .modal-content { width: 90%; margin: 25% auto; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 Centro de Recursos Pro</h1>
+        <p>Tutoriais completos, downloads e conteúdo exclusivo para você</p>
+    </header>
+    <div class="container">
+        <section>
+            <h2 class="section-title">📚 Tutoriais em Destaque</h2>
+            <div class="cards-grid">
+                <div class="card" onclick="verificarKey('skin-changer', 'tutorial-skin-changer.html')">
+                    <div class="card-title">🎨 Skin Changer</div>
+                    <div class="card-description">
+                        Aprenda passo a passo como instalar e usar o Skin Changer. Inclui guia de antivírus e troubleshooting.
+                    </div>
+                    <button class="card-button">Acessar Tutorial →</button>
+                </div>
+                <div class="card" onclick="verificarKey('warzone', 'tutorial-warzone.html')">
+                    <div class="card-title">🎮 Warzone</div>
+                    <div class="card-description">
+                        Tutorial completo do Warzone. Instalação, otimização e dicas avançadas.
+                    </div>
+                    <button class="card-button">Acessar Tutorial →</button>
+                </div>
+                <div class="card" onclick="verificarKey('fivem', 'tutorial-fivem.html')">
+                    <div class="card-title">🏙️ FiveM</div>
+                    <div class="card-description">
+                        Guia passo-a-passo para FiveM. Instalação, servidores e customização.
+                    </div>
+                    <button class="card-button">Acessar Tutorial →</button>
+                </div>
+                <div class="card" onclick="verificarKey('proxy-menu', 'tutorial-proxy-menu.html')">
+                    <div class="card-title">🎛️ Proxy Menu</div>
+                    <div class="card-description">
+                        Tutorial completo do Proxy Menu. Instalação, ativação e configuração avançada.
+                    </div>
+                    <button class="card-button">Acessar Tutorial →</button>
+                </div>
+                <div class="card" onclick="verificarKey('spoofer-valorant', 'tutorial-spoofer-valorant.html')">
+                    <div class="card-title">🎯 Spoofer Valorant</div>
+                    <div class="card-description">
+                        Tutorial do Spoofer Valorant. Proteção de HWID e configuração segura.
+                    </div>
+                    <button class="card-button">Acessar Tutorial →</button>
+                </div>
+                <div class="card" onclick="verificarKey('spoofer-fivem', 'tutorial-spoofer-fivem.html')">
+                    <div class="card-title">🏆 Spoofer FiveM</div>
+                    <div class="card-description">
+                        Guia completo do Spoofer FiveM. Proteção de ban e uso seguro.
+                    </div>
+                    <button class="card-button">Acessar Tutorial →</button>
+                </div>
+                <div class="card" style="cursor: default; opacity: 0.6;">
+                    <div class="card-title">⚙️ Troubleshooting</div>
+                    <div class="card-description">
+                        Problemas comuns e soluções. Se algo não está funcionando, encontre a resposta aqui.
+                    </div>
+                    <button class="card-button" style="cursor: not-allowed;">Em Breve ⏳</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rádio Rock Pro -->
+        <section class="player-section">
+            <h2>🎸 Ouça Nossa Rádio Rock Pro</h2>
+            <p>Rock ambiente tocando automaticamente (volume baixo recomendado)</p>
+            <audio controls autoplay loop>
+                <source src="https://filesamples.com/samples/audio/mp3/sample3.mp3" type="audio/mpeg">
+                <source src="https://www.bensound.com/bensound-music/bensound-epic.mp3" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+        </section>
+
+        <section>
+            <h2 class="section-title">📥 Downloads Rápidos</h2>
+            <div class="cards-grid">
+                <div class="card" style="cursor: default;">
+                    <div class="card-title">📦 Skin Changer v3.2</div>
+                    <div class="card-description">
+                        Última versão com melhorias de compatibilidade e segurança.
+                    </div>
+                    <a href="#" class="card-button" onclick="alert('Link de download virá em breve'); return false;">Baixar →</a>
+                </div>
+                <div class="card" style="cursor: default;">
+                    <div class="card-title">📊 Documentação PDF</div>
+                    <div class="card-description">
+                        Guia completo em PDF para consultar offline.
+                    </div>
+                    <a href="#" class="card-button" onclick="alert('PDF em desenvolvimento'); return false;">Download →</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Centro de Recursos Pro. Todos os direitos reservados. Desenvolvido com ❤️ para você | Última atualização: Fevereiro 2026</p>
+    </footer>
+
+    <!-- Modal de Autenticação -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <h2>🔐 Acesso Restrito</h2>
+            <p id="descricaoChave">Digite a chave para acessar este tutorial:</p>
+            <input type="text" id="keyInput" class="input-key" placeholder="Digite sua chave..." />
+            <div class="error-message" id="errorMessage">⚠️ Chave inválida! Verifique e tente novamente.</div>
+            <div class="modal-buttons">
+                <button class="btn-unlock" onclick="validarKey()">🔓 Desbloquear</button>
+                <button class="btn-cancel" onclick="fecharModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let tutorialAtual = null;
+        let urlTutorial = null;
+        let ehSkinChanger = false;
+
+        function verificarKey(tutorial, url) {
+            tutorialAtual = tutorial;
+            urlTutorial = url;
+            ehSkinChanger = (tutorial === 'skin-changer');
+            document.getElementById('authModal').style.display = 'block';
+            document.getElementById('keyInput').value = '';
+            document.getElementById('errorMessage').style.display = 'none';
+
+            if (ehSkinChanger) {
+                document.getElementById('keyInput').placeholder = 'Chave hex (20-60 caracteres)';
+                document.getElementById('descricaoChave').textContent = 'Digite sua chave Skin Changer (hexadecimal):';
+            } else {
+                document.getElementById('keyInput').placeholder = 'Mínimo 10 caracteres';
+                document.getElementById('descricaoChave').textContent = 'Digite sua chave de subscrição:';
+            }
+            document.getElementById('keyInput').focus();
+        }
+
+        // Skin Changer: aceita hex (0-9 a-f A-F) entre 20 e 60 chars, ignora espaços, hifens, 0x, símbolos
+        function validarFormatoSkinChanger(chave) {
+            const limpo = chave.replace(/[\s\-_0x:,\.]/gi, '').replace(/^0x/i, '');
+            const hexOnly = limpo.replace(/[^a-fA-F0-9]/g, '');
+            return hexOnly.length >= 20 && hexOnly.length <= 60;
+        }
+
+        // Não-Skin: aceita QUALQUER string com 10+ caracteres
+        function validarFormatoGenerico(chave) {
+            return chave.trim().length >= 10;
+        }
+
+        function validarKey() {
+            const chaveDigitada = document.getElementById('keyInput').value;
+            const errorMsg = document.getElementById('errorMessage');
+            let chaveValida = false;
+
+            if (ehSkinChanger) {
+                chaveValida = validarFormatoSkinChanger(chaveDigitada);
+                if (!chaveValida) {
+                    errorMsg.textContent = '⚠️ Formato inválido! Use caracteres hexadecimais (0-9, a-f), entre 20 e 60 chars.';
+                }
+            } else {
+                chaveValida = validarFormatoGenerico(chaveDigitada);
+                if (!chaveValida) {
+                    errorMsg.textContent = '⚠️ Chave muito curta! Mínimo 10 caracteres.';
+                }
+            }
+
+            if (chaveValida) {
+                localStorage.setItem('tutorial_' + tutorialAtual, chaveDigitada.trim());
+                document.getElementById('authModal').style.display = 'none';
+                window.location.href = urlTutorial;
+            } else {
+                errorMsg.style.display = 'block';
+                document.getElementById('keyInput').value = '';
+                document.getElementById('keyInput').focus();
+            }
+        }
+
+        function fecharModal() {
+            document.getElementById('authModal').style.display = 'none';
+            document.getElementById('keyInput').value = '';
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('keyInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') validarKey();
+            });
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('authModal');
+            if (event.target === modal) fecharModal();
+        }
+    </script>
+</body>
+</html>

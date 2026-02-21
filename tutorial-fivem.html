@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial FiveM - Centro de Recursos Pro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0015 0%, #1a0033 50%, #000814 100%);
+            color: #e0e0ff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(10, 0, 30, 0.7);
+            border-bottom: 3px solid #9d00ff;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(157, 0, 255, 0.4);
+        }
+        header h1 { font-size: 2.5em; color: #c300ff; text-shadow: 0 0 20px #c300ff; margin-bottom: 10px; }
+        .breadcrumb { color: #b0b0ff; font-size: 0.9em; margin-top: 10px; }
+        .breadcrumb a { color: #00d4ff; text-decoration: none; cursor: pointer; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .container { max-width: 900px; margin: 0 auto; }
+        section {
+            background: rgba(20, 0, 50, 0.4);
+            border: 2px solid #9d00ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.2);
+        }
+        h2 { color: #00d4ff; font-size: 1.8em; margin-bottom: 15px; border-bottom: 2px solid #9d00ff; padding-bottom: 10px; text-shadow: 0 0 8px #00d4ff; }
+        h3 { color: #c300ff; font-size: 1.3em; margin-top: 20px; margin-bottom: 10px; text-shadow: 0 0 6px #c300ff; }
+        p { color: #b0b0ff; line-height: 1.6; margin-bottom: 15px; }
+        .warning { background: rgba(255, 80, 80, 0.1); border-left: 4px solid #ff5555; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .warning strong { color: #ff6666; }
+        .success { background: rgba(0, 212, 255, 0.08); border-left: 4px solid #00d4ff; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success strong { color: #00d4ff; }
+        .info { background: rgba(157, 0, 255, 0.1); border-left: 4px solid #9d00ff; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info strong { color: #c300ff; }
+        ol, ul { margin-left: 30px; margin-bottom: 15px; color: #b0b0ff; line-height: 1.8; }
+        li { margin-bottom: 10px; }
+        .step { background: rgba(157, 0, 255, 0.07); border-left: 4px solid #9d00ff; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .step-number { display: inline-block; background: linear-gradient(135deg, #9d00ff, #00d4ff); color: #fff; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        .step-title { color: #00d4ff; font-size: 1.1em; font-weight: bold; display: inline; }
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #9d00ff 0%, #00d4ff 100%);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .download-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 212, 255, 0.8); }
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #9d00ff 0%, #00d4ff 100%);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .back-button:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 212, 255, 0.6); }
+        footer { text-align: center; padding: 20px; color: #8080aa; margin-top: 40px; border-top: 1px solid #300066; }
+        code { background: rgba(0, 212, 255, 0.1); color: #00d4ff; padding: 2px 6px; border-radius: 3px; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            section { padding: 20px; }
+            h2 { font-size: 1.4em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏙️ Tutorial: FiveM</h1>
+        <div class="breadcrumb">
+            <a onclick="window.location.href='index.html'">← Voltar para Home</a> | Atualizado em Fevereiro 2026
+        </div>
+    </header>
+
+    <div class="container">
+        <button class="back-button" onclick="window.location.href='index.html'">← Voltar para Home</button>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="https://storage.mginex.cloud/0a5bdbf7-11a2-44d4-9896-7ed832f66a30.jpeg" alt="FiveM Tutorial" style="width: 100%; max-width: 600px; border-radius: 10px; border: 2px solid #9d00ff; box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);" onerror="this.style.display='none'" />
+        </div>
+
+        <section>
+            <h2>📌 Introdução</h2>
+            <p>
+                Bem-vindo ao tutorial completo do <strong>FiveM</strong>! FiveM é uma modificação que permite jogar GTA V em servidores customizados com roleplay, novas funcionalidades e muito mais.
+            </p>
+            <p>
+                Este guia oferece instruções passo-a-passo para instalar FiveM, conectar em servidores e aproveitar toda a diversão de um servidor roleplay de qualidade.
+            </p>
+        </section>
+
+        <section>
+            <h2>📋 O que você vai aprender</h2>
+            <ul>
+                <li>✅ Requisitos para rodar FiveM</li>
+                <li>✅ Como fazer download do FiveM</li>
+                <li>✅ Instalação passo-a-passo</li>
+                <li>✅ Como conectar em servidores</li>
+                <li>✅ Configuração básica de servidor</li>
+                <li>✅ Troubleshooting e soluções</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🔧 Requisitos Mínimos</h2>
+            <h3>Obrigatório:</h3>
+            <ul>
+                <li><strong>GTA V</strong> legítimo comprado na Steam (OBRIGATÓRIO)</li>
+                <li><strong>Windows 10/11</strong> 64 bits</li>
+            </ul>
+            <h3>Hardware Recomendado:</h3>
+            <ul>
+                <li><strong>CPU:</strong> Intel i5 ou AMD Ryzen 5 (equivalente)</li>
+                <li><strong>RAM:</strong> 8GB (16GB para melhor experiência)</li>
+                <li><strong>GPU:</strong> NVIDIA GTX 960 / AMD R9 290 ou superior</li>
+                <li><strong>Espaço em disco:</strong> 100GB+ (GTA V completo)</li>
+                <li><strong>Internet:</strong> Conexão estável (mínimo 10 Mbps)</li>
+            </ul>
+            <div class="warning">
+                <strong>⚠️ Atenção:</strong> GTA V pirateado NÃO funciona com FiveM. É necessário o jogo legítimo na Steam.
+            </div>
+        </section>
+
+        <section>
+            <h2>📥 Passo 1: Download do FiveM</h2>
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-title">Faça o Download do FiveM</span>
+            </div>
+            <ol>
+                <li>Acesse o site oficial do FiveM</li>
+                <li>Clique em <strong>Download Launcher</strong></li>
+                <li>O arquivo <strong>FiveM.exe</strong> será baixado automaticamente</li>
+            </ol>
+            <button class="download-button" onclick="window.open('https://fivem.net', '_blank');">
+                📥 Ir para FiveM.net
+            </button>
+            <div class="success">
+                <strong>✅ Download:</strong> Arquivo FiveM.exe pronto para instalar!
+            </div>
+        </section>
+
+        <section>
+            <h2>⚙️ Passo 2: Instalação do FiveM</h2>
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-title">Instalar o FiveM</span>
+            </div>
+            <ol>
+                <li>Localize o arquivo <strong>FiveM.exe</strong> que você baixou</li>
+                <li>Clique <strong>direito</strong> → <strong>Executar como administrador</strong></li>
+                <li>Clique <strong>"Sim"</strong> quando perguntado sobre alterações no PC</li>
+                <li>Selecione a pasta onde seu <strong>GTA V está instalado</strong> (geralmente <code>C:\Program Files (x86)\Steam\steamapps\common\Grand Theft Auto V</code>)</li>
+                <li>Aguarde a instalação completar</li>
+                <li>Um atalho do FiveM será criado na Área de Trabalho</li>
+            </ol>
+            <div class="success">
+                <strong>✅ FiveM instalado!</strong> Atalho criado na Área de Trabalho.
+            </div>
+        </section>
+
+        <section>
+            <h2>🌐 Passo 3: Primeira Execução</h2>
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-title">Abrir o FiveM pela Primeira Vez</span>
+            </div>
+            <ol>
+                <li>Duplo-clique no atalho <strong>FiveM</strong> da Área de Trabalho</li>
+                <li>O launcher FiveM abrirá</li>
+                <li>Clique em <strong>"Launch"</strong> ou <strong>"Join Server"</strong></li>
+                <li>Aguarde o jogo carregar (primeira vez demora mais)</li>
+                <li>Você verá a lista de servidores disponíveis</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>🔍 Passo 4: Conectar em um Servidor</h2>
+            <div class="step">
+                <span class="step-number">4</span>
+                <span class="step-title">Entrar em um Servidor FiveM</span>
+            </div>
+            <ol>
+                <li>Na lista, procure por um servidor e clique nele</li>
+                <li>Leia a descrição e requisitos</li>
+                <li>Clique em <strong>"Conectar"</strong> ou <strong>"Join"</strong></li>
+                <li>Aguarde a conexão ser estabelecida (pode levar 30 segundos)</li>
+                <li>Quando conectado, o jogo carregará</li>
+                <li>Bem-vindo ao servidor FiveM! 🎉</li>
+            </ol>
+            <div class="info">
+                <strong>💡 Dica:</strong> Filtre servidores por idioma "Portuguese" para encontrar servidores BR.
+            </div>
+        </section>
+
+        <section>
+            <h2>🎮 Controles Básicos no Server</h2>
+            <ul>
+                <li><strong>T</strong> - Abrir chat</li>
+                <li><strong>/help</strong> - Ver comandos disponíveis</li>
+                <li><strong>/me [ação]</strong> - Fazer ação (ex: /me acena)</li>
+                <li><strong>/do [descrição]</strong> - Descrever situação</li>
+                <li><strong>M</strong> - Abrir mapa</li>
+                <li><strong>N</strong> - Abrir GPS</li>
+                <li>Outros comandos variam por servidor</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🐛 Troubleshooting: Problemas Comuns</h2>
+
+            <h3>❌ Problema: "GTA V não encontrado"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Certifique-se de que GTA V está instalado no Steam</li>
+                <li>Repita a instalação do FiveM</li>
+                <li>Informe manualmente o caminho do GTA V na instalação</li>
+            </ul>
+
+            <h3>❌ Problema: "Não consegue conectar em servidor"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Verifique sua conexão de internet</li>
+                <li>Reinicie o roteador</li>
+                <li>Tente um servidor diferente</li>
+                <li>Desabilite temporariamente o firewall/antivírus</li>
+            </ul>
+
+            <h3>❌ Problema: "Jogo trava ou desconecta"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Verifique se há integridade de arquivos do GTA V (Steam)</li>
+                <li>Reduza configurações gráficas</li>
+                <li>Atualize drivers da GPU</li>
+                <li>Feche programas de fundo desnecessários</li>
+            </ul>
+
+            <h3>❌ Problema: "Erro: No license key found"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>GTA V pirateado NÃO funciona com FiveM</li>
+                <li>Compre o jogo legítimo na Steam</li>
+                <li>Não há forma de contornar esta restrição</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>✅ Dicas Importantes</h2>
+            <ul>
+                <li>📋 Leia as regras de cada servidor antes de jogar</li>
+                <li>👥 Seja respeitoso com outros jogadores</li>
+                <li>🎯 Explore diferentes tipos de servidores</li>
+                <li>💾 Crie backups de seus dados do jogo</li>
+                <li>🔄 Atualize o FiveM regularmente</li>
+            </ul>
+        </section>
+
+        <button class="back-button" onclick="window.location.href='index.html'">← Voltar para Home</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Centro de Recursos Pro. Todos os direitos reservados. Desenvolvido com ❤️ para você | Última atualização: Fevereiro 2026</p>
+    </footer>
+</body>
+</html>

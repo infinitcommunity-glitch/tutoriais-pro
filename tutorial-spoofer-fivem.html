@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Spoofer FiveM - Centro de Recursos Pro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0015 0%, #1a0033 50%, #000814 100%);
+            color: #e0e0ff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(10, 0, 30, 0.7);
+            border-bottom: 3px solid #9d00ff;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(157, 0, 255, 0.4);
+        }
+        header h1 { font-size: 2.5em; color: #c300ff; text-shadow: 0 0 20px #c300ff; margin-bottom: 10px; }
+        .breadcrumb { color: #b0b0ff; font-size: 0.9em; margin-top: 10px; }
+        .breadcrumb a { color: #00d4ff; text-decoration: none; cursor: pointer; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .container { max-width: 900px; margin: 0 auto; }
+        section {
+            background: rgba(20, 0, 50, 0.4);
+            border: 2px solid #9d00ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.2);
+        }
+        h2 { color: #00d4ff; font-size: 1.8em; margin-bottom: 15px; border-bottom: 2px solid #9d00ff; padding-bottom: 10px; text-shadow: 0 0 8px #00d4ff; }
+        h3 { color: #c300ff; font-size: 1.3em; margin-top: 20px; margin-bottom: 10px; text-shadow: 0 0 6px #c300ff; }
+        p { color: #b0b0ff; line-height: 1.6; margin-bottom: 15px; }
+        .warning { background: rgba(255, 80, 80, 0.1); border-left: 4px solid #ff5555; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .warning strong { color: #ff6666; }
+        .success { background: rgba(0, 212, 255, 0.08); border-left: 4px solid #00d4ff; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success strong { color: #00d4ff; }
+        .info { background: rgba(157, 0, 255, 0.1); border-left: 4px solid #9d00ff; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info strong { color: #c300ff; }
+        ol, ul { margin-left: 30px; margin-bottom: 15px; color: #b0b0ff; line-height: 1.8; }
+        li { margin-bottom: 10px; }
+        .step { background: rgba(157, 0, 255, 0.07); border-left: 4px solid #9d00ff; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .step-number { display: inline-block; background: linear-gradient(135deg, #9d00ff, #00d4ff); color: #fff; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        .step-title { color: #00d4ff; font-size: 1.1em; font-weight: bold; display: inline; }
+        .download-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #9d00ff 0%, #00d4ff 100%);
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .download-button:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0, 212, 255, 0.8); }
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #9d00ff 0%, #00d4ff 100%);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .back-button:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 212, 255, 0.6); }
+        footer { text-align: center; padding: 20px; color: #8080aa; margin-top: 40px; border-top: 1px solid #300066; }
+        code { background: rgba(0, 212, 255, 0.1); color: #00d4ff; padding: 2px 6px; border-radius: 3px; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            section { padding: 20px; }
+            h2 { font-size: 1.4em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏆 Tutorial: Spoofer FiveM</h1>
+        <div class="breadcrumb">
+            <a onclick="window.location.href='index.html'">← Voltar para Home</a> | Atualizado em Fevereiro 2026
+        </div>
+    </header>
+
+    <div class="container">
+        <button class="back-button" onclick="window.location.href='index.html'">← Voltar para Home</button>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="https://storage.mginex.cloud/0a5bdbf7-11a2-44d4-9896-7ed832f66a30.jpeg" alt="Spoofer FiveM Tutorial" style="width: 100%; max-width: 600px; border-radius: 10px; border: 2px solid #9d00ff; box-shadow: 0 0 20px rgba(157, 0, 255, 0.4);" onerror="this.style.display='none'" />
+        </div>
+
+        <section>
+            <h2>📌 Introdução</h2>
+            <p>
+                Bem-vindo ao tutorial completo do <strong>Spoofer FiveM</strong>! Este programa oferece proteção de bans em servidores FiveM através de técnicas de spoofer de Hardware ID.
+            </p>
+            <p>
+                Este guia fornece instruções detalhadas para instalação, configuração e uso seguro do Spoofer FiveM.
+            </p>
+        </section>
+
+        <section>
+            <h2>📋 O que você vai aprender</h2>
+            <ul>
+                <li>✅ Entender o propósito do Spoofer FiveM</li>
+                <li>✅ Verificar requisitos do sistema</li>
+                <li>✅ Download seguro e verificado</li>
+                <li>✅ Instalação completa passo-a-passo</li>
+                <li>✅ Configuração das opções</li>
+                <li>✅ Integração com FiveM</li>
+                <li>✅ Resolução de problemas</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🛡️ Por que usar Spoofer FiveM?</h2>
+            <p>
+                Em alguns servidores FiveM privados ou RP, administradores podem banir usuários através de HWID. Um Spoofer oferece proteção:
+            </p>
+            <ul>
+                <li>✅ <strong>Proteção de HWID Ban:</strong> Oferece um HWID "falso"/alternativo</li>
+                <li>✅ <strong>Múltiplas Contas:</strong> Permita usar diferentes contas no mesmo PC</li>
+                <li>✅ <strong>Privacidade:</strong> Mascare informações de hardware</li>
+                <li>✅ <strong>Segunda Chance:</strong> Acesse o servidor com nova identidade após ban</li>
+            </ul>
+            <div class="warning">
+                <strong>⚠️ Atenção:</strong> Use este programa de forma ética e responsável. Respeite as regras dos servidores.
+            </div>
+        </section>
+
+        <section>
+            <h2>🔧 Requisitos Mínimos</h2>
+            <ul>
+                <li><strong>Windows 10/11</strong> 64 bits</li>
+                <li><strong>RAM:</strong> Mínimo 4GB (8GB recomendado)</li>
+                <li><strong>Privilégios de administrador</strong></li>
+                <li><strong>FiveM</strong> instalado e funcionando</li>
+                <li><strong>GTA V</strong> legítimo no Steam</li>
+                <li><strong>Espaço em disco:</strong> 500MB livres</li>
+            </ul>
+            <div class="success">
+                <strong>✅ Compatível:</strong> Funciona com FiveM e GTA V Steam legítimo.
+            </div>
+        </section>
+
+        <section>
+            <h2>📥 Passo 1: Preparar o Sistema</h2>
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-title">Desativar Proteções Temporariamente</span>
+            </div>
+            <h3>Desativar Proteções (temporariamente):</h3>
+            <ol>
+                <li>Abra <strong>Configurações</strong> (Windows + I)</li>
+                <li>Vá para <strong>Privacidade e Segurança</strong></li>
+                <li>Clique em <strong>Proteção contra vírus</strong></li>
+                <li>Desative a <strong>Proteção em tempo real</strong></li>
+                <li>Também desative qualquer outro antivírus (se houver)</li>
+            </ol>
+            <div class="info">
+                <strong>💡 Lembre-se:</strong> Reative tudo após concluir a instalação para manter seu PC seguro.
+            </div>
+        </section>
+
+        <section>
+            <h2>📥 Passo 2: Download</h2>
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-title">Baixar o Spoofer FiveM</span>
+            </div>
+            <p>Clique no botão para fazer download seguro:</p>
+            <button class="download-button" onclick="alert('Link de download será adicionado em breve. Você receberá via WhatsApp/Email.');">
+                📥 Baixar Spoofer FiveM v1.8
+            </button>
+            <div class="success">
+                <strong>✅ Baixado:</strong> Arquivo pronto para instalar!
+            </div>
+        </section>
+
+        <section>
+            <h2>📦 Passo 3: Descompactar</h2>
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-title">Extrair o ZIP</span>
+            </div>
+            <ol>
+                <li>Localize o arquivo baixado em <strong>Downloads</strong></li>
+                <li>Clique <strong>direito</strong> → <strong>"Extrair aqui"</strong></li>
+                <li>Aguarde conclusão</li>
+                <li>Uma pasta será criada com o nome do programa</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>⚙️ Passo 4: Instalação</h2>
+            <div class="step">
+                <span class="step-number">4</span>
+                <span class="step-title">Executar o Instalador</span>
+            </div>
+            <ol>
+                <li>Abra a pasta descompactada</li>
+                <li>Procure por <strong>Setup.exe</strong> ou <strong>Install.exe</strong></li>
+                <li>Clique <strong>direito</strong> → <strong>"Executar como administrador"</strong></li>
+                <li>Clique <strong>"Sim"</strong> na pergunta de controle</li>
+                <li>Siga as instruções na tela (próximo, próximo, instalar)</li>
+                <li>Aguarde 2-3 minutos para conclusão</li>
+            </ol>
+            <div class="success">
+                <strong>✅ Instalado!</strong> Programa pronto para configurar.
+            </div>
+        </section>
+
+        <section>
+            <h2>⚙️ Passo 5: Configuração Inicial</h2>
+            <div class="step">
+                <span class="step-number">5</span>
+                <span class="step-title">Configurar o Spoofer</span>
+            </div>
+            <h3>Abra o Programa e Configure:</h3>
+            <ol>
+                <li>Duplo-clique no atalho do Spoofer FiveM</li>
+                <li>Na aba <strong>"Settings"</strong> ou <strong>"Configurações"</strong>:
+                    <ul>
+                        <li>✅ Ative <strong>"Spoof HWID"</strong></li>
+                        <li>✅ Ative <strong>"Spoof MAC Address"</strong></li>
+                        <li>✅ Ative <strong>"Auto-Run on Startup"</strong></li>
+                        <li>✅ Ative <strong>"Randomize HWID"</strong> (se disponível)</li>
+                    </ul>
+                </li>
+                <li>Clique em <strong>"Apply"</strong> ou <strong>"Salvar"</strong></li>
+                <li><strong>Reinicie o PC</strong></li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>🎮 Passo 6: Conectar com FiveM</h2>
+            <div class="step">
+                <span class="step-number">6</span>
+                <span class="step-title">Usar com FiveM</span>
+            </div>
+            <h3>Procedimento:</h3>
+            <ol>
+                <li>Certifique-se de que o Spoofer FiveM está <strong>rodando</strong> (veja na barra de tarefas)</li>
+                <li>Inicie o <strong>FiveM launcher</strong> normalmente</li>
+                <li>Conecte em um servidor (o spoofer já estará ativo)</li>
+                <li>Desfrute do jogo com proteção! ✅</li>
+            </ol>
+            <div class="success">
+                <strong>✅ Ativo!</strong> Spoofer protegendo seu HWID durante o FiveM.
+            </div>
+        </section>
+
+        <section>
+            <h2>📊 Verificar se está Funcionando</h2>
+            <ul>
+                <li>👁️ Verifique se o ícone do Spoofer está visível na barra de tarefas</li>
+                <li>🔵 Procure por um indicador "Ativo" ou status de conexão</li>
+                <li>📊 Clique no ícone para ver status do Hardware ID (mudará a cada execução)</li>
+                <li>🎮 Se FiveM conecta normalmente, o spoofer está funcionando</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🐛 Troubleshooting: Problemas Comuns</h2>
+
+            <h3>❌ Problema: "Spoofer não inicia"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Execute sempre como <strong>Administrador</strong></li>
+                <li>Desative antivírus durante execução</li>
+                <li>Reinstale o programa completamente</li>
+            </ul>
+
+            <h3>❌ Problema: "FiveM não conecta com Spoofer ativo"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Aguarde 5 segundos após iniciar o Spoofer antes de abrir FiveM</li>
+                <li>Desative e reative o Spoofer</li>
+                <li>Verifique se a versão é compatível com sua versão de FiveM</li>
+            </ul>
+
+            <h3>❌ Problema: "Servidor diz que estou banido mesmo com Spoofer"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Se sua conta está banida, o ban pode ser por IP também</li>
+                <li>Tente usar VPN (cuidado: alguns servidores bloqueiam VPN)</li>
+                <li>A forma mais segura é contactar admins do servidor</li>
+            </ul>
+
+            <h3>❌ Problema: "Erro: Driver not installed"</h3>
+            <p><strong>Solução:</strong></p>
+            <ul>
+                <li>Reinstale o programa</li>
+                <li>Reinicie o PC</li>
+                <li>Certifique-se de rodar como Administrador</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🔒 Dicas de Segurança</h2>
+            <ul>
+                <li>🔐 <strong>Sempre mantenha atualizado:</strong> Versões antigas podem não funcionar</li>
+                <li>🛡️ <strong>Reative antivírus:</strong> Após usar o Spoofer</li>
+                <li>📁 <strong>Pasta segura:</strong> Guarde em local protegido</li>
+                <li>🚫 <strong>Não compartilhe:</strong> Com pessoas que você não confia</li>
+                <li>✅ <strong>Cumpra regras:</strong> Respeite as políticas dos servidores</li>
+                <li>🔄 <strong>Backup:</strong> Faça backup das configurações</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>❤️ Avisos Finais</h2>
+            <p>
+                <strong>Use este programa eticamente!</strong> Se você foi banido de um servidor por cheating ou comportamento ruim, o correto é aceitar a consequência, não contorná-la.
+            </p>
+            <p>
+                Spoofer deve ser usado apenas para:
+            </p>
+            <ul>
+                <li>✅ Proteger privacidade legítima</li>
+                <li>✅ Usar múltiplas contas no mesmo PC</li>
+                <li>✅ Em casos específicos de ban injusto (com consentimento do admin)</li>
+            </ul>
+            <div class="warning">
+                <strong>⚠️ Responsabilidade:</strong> O uso deste software é de sua inteira responsabilidade. Use com ética e respeito à comunidade.
+            </div>
+        </section>
+
+        <button class="back-button" onclick="window.location.href='index.html'">← Voltar para Home</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Centro de Recursos Pro. Todos os direitos reservados. Desenvolvido com ❤️ para você | Última atualização: Fevereiro 2026</p>
+    </footer>
+</body>
+</html>
